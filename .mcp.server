@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp-server"],
+      "transport": "stdio"
+    }
+  }
+}
+```
+
+2. **Your agent `.md` files** go in `.claude/commands/`:
+```
+.claude/
+  commands/
+    orchestrator.md
+    planner.md
+    writer.md
+    runner.md

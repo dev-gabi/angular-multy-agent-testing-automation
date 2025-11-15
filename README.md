@@ -1,59 +1,33 @@
 # MultyAgentTesting
+    Goal:
+        create and run tests for components automatically using playwright mcp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.6.
+# Install Claude Code CLI
+    npm install -g @anthropic-ai/claude-code
 
-## Development server
+#Install playwright 
+     npm install --save-dev @playwright/test    
 
-To start a local development server, run:
+# Verify installation
+    claude --version
 
-```bash
-ng serve
-```
+#init claude
+    claude initcl
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+option 1:
+#Claude code usage
+    in the terminal:
 
-## Code scaffolding
+    # Start Claude Code
+    claude
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+    # Run the test orchestrator
+    /orchestrator Test src/app/components/login/login.component.ts
 
-```bash
-ng generate component component-name
-```
+option 2:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+# Run Playwright manually
+npx playwright test src/app/components/login/login.component.spec.ts --headed
 
-```bash
-ng generate --help
-```
+# This helps verify the generated tests work correctly
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

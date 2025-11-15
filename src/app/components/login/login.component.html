@@ -1,0 +1,75 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>Login</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="Enter your email"
+          class="form-control"
+          data-testid="email-input"
+        />
+        @if (email?.invalid && email?.touched) {
+          <div class="error-text" data-testid="email-error">
+            @if (email?.errors?.['required']) {
+              <span>Email is required</span>
+            }
+            @if (email?.errors?.['email']) {
+              <span>Please enter a valid email</span>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="Enter your password"
+          class="form-control"
+          data-testid="password-input"
+        />
+        @if (password?.invalid && password?.touched) {
+          <div class="error-text" data-testid="password-error">
+            @if (password?.errors?.['required']) {
+              <span>Password is required</span>
+            }
+            @if (password?.errors?.['minlength']) {
+              <span>Password must be at least 6 characters</span>
+            }
+          </div>
+        }
+      </div>
+
+      @if (errorMessage()) {
+        <div class="error-message" data-testid="error-message">
+          {{ errorMessage() }}
+        </div>
+      }
+
+      <button
+        type="submit"
+        [disabled]="loginForm.invalid"
+        class="btn-primary"
+        data-testid="login-button"
+      >
+        Login
+      </button>
+
+      <button
+        type="button"
+        (click)="reset()"
+        class="btn-secondary"
+        data-testid="reset-button"
+      >
+        Reset
+      </button>
+    </form>
+  </div>
+</div>
